@@ -639,6 +639,8 @@ footer .inner-content p a {
 .products .filters ul li.active,
 .products .filters ul li:hover {
   color: #f33f3f;
+    font-size: 20px;
+
 }
 
 .products ul.pages {

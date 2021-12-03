@@ -11,14 +11,21 @@ use App\model\Rating;
 class publicCategoryController extends Controller
 {
 
-    public function index () {
 
-        $categories  = Category::withoutTrashed()->get();
+    public function index (Request $request) {
+        $search = $request['search'] ?? "";
+        if ($search != ""){
+            $categories = Category::withoutTrashed()->where('title','LIKE',"%$search%")->get();
+        }
+        else{
+            $categories = Category::all();
+        }
 
-        return view('welcome' , compact('categories'));
+        $data = compact('categories' , 'search');
+
+        return view('welcome')->with($data);
     }
-
-    public function search(Request  $request){
+   /* public function search(Request  $request){
         $search = $request['search'];
         //$search = $_GET['search'];
 
@@ -27,6 +34,6 @@ class publicCategoryController extends Controller
 
 
         return view('welcome',compact('categories'));
-    }
+    }*/
 
 }

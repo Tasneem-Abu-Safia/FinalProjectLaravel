@@ -27,11 +27,16 @@
           style=" width: 195px;">
 
         <div class="input-group">
-            <input type="search" name="search" class="form-control" placeholder="Search" style="    height: 30px;">
+            <input type="search" name="search" class="form-control" placeholder="Search" style=" height: 31px;
+    border-radius: 2px;
+    width: 40px;">
             <div class="input-group-btn">
-                <button class="btn btn-info" type="submit" style="    height: 30px;">
+                <button class="btn btn-info" type="submit" style="    height: 31px;
+    border-radius: 2px;
+    width: 40px;">
                     <i class="glyphicon glyphicon-search"></i>
                 </button>
+
             </div>
         </div>
     </form>
@@ -147,3 +152,4 @@
 
 
 @stop
+

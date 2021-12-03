@@ -96,6 +96,8 @@ class StoresController extends Controller
         $store->name = $request['name'];
         $store->address = $request['address'];
         $store->phone= $request['phone'];
+        $store->categories_id= $request['category_id'];
+
         $is_foundName  = Store::withoutTrashed()->where('name',$request['name'])->where('id','!=',$id)->exists();
         $status = false;
         if (!$is_foundName){

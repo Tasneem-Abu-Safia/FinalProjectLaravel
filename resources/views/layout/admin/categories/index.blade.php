@@ -2,7 +2,24 @@
 @section("Headtitle")
     Show categories
 @stop
+@section("search-side")
+    <form action="" method="get"
+          style="position: absolute; width: 20%;">
+        <div class="input-group">
+            <input type="search" name="search" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+                <button class="btn btn-info" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
 
+                <a href="{{URL('admin/categories')}}" >  <button class="btn btn-info" type="button" style="    border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                    <i class="glyphicon glyphicon-repeat"></i>
+                </button></a>
+            </div>
+        </div>
+    </form>
+
+@stop
 @section("title-side")
 <a href="{{asset('admin/categories/create')}}"
     class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">

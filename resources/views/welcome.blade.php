@@ -9,15 +9,24 @@
                         <ul>
                             <li class="active" data-filter="*">All Categories</li>
                             <li class="active" data-filter="*">
-                                <form action="{{URL('public/category/search')}}" method="get"
+                                <form action="" method="get"
                                       style=" width: 195px;">
 
                                     <div class="input-group">
-                                        <input type="search" name="search" class="form-control" placeholder="Search" style="    height: 30px;">
+                                        <input type="search" name="search" class="form-control" placeholder="Search" style="font-size: 14px; height: 30px;">
                                         <div class="input-group-btn">
-                                            <button class="btn btn-info" type="submit" style="    height: 30px;">
+                                            <button class="btn btn-info" type="submit" style="height: 31px;
+    border-radius: 2px;
+    width: 40px;">
                                                 <i class="glyphicon glyphicon-search"></i>
                                             </button>
+                                            <a href="{{URL('/')}}" >  <button class="btn btn-info" type="button" style="
+                                             margin-left: 3px;
+    height: 31px;
+    border-radius: 3px;
+    width: 40px;">
+                                                    <i class="glyphicon glyphicon-repeat"></i>
+                                                </button></a>
                                         </div>
                                     </div>
                                 </form>

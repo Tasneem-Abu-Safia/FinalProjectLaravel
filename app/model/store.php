@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class store extends Model
 {
     use SoftDeletes;
-  public function categorie(){
+  public function category(){
       return $this->belongsTo('App\model\category');
   }
 

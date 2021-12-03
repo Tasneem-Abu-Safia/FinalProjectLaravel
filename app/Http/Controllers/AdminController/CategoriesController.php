@@ -40,15 +40,18 @@ class CategoriesController extends Controller
         return redirect()->back()->with('status',$status);
     }
 
-    public function index () {
+    public function index (Request $request) {
+        $search = $request['search'] ?? "";
+        if ($search != ""){
+            $categories = Category::withoutTrashed()->where('title','LIKE',"%$search%")->get();
+        }
+        else{
+            $categories = Category::all();
+        }
 
+        $data = compact('categories' , 'search');
 
-
-        $categories = Category::all();
-
-
-
-        return view('layout.admin.categories.index')->with('categories', $categories);
+        return view('layout.admin.categories.index')->with($data);
     }
 
     public function destroy($id) {

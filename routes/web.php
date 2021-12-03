@@ -58,5 +58,5 @@ Route::post('public/rate/{id}', 'PublicController\PublicStoreController@store');
 Route::get('public/detail/{id}', 'PublicController\PublicStoreController@detail');
 Route::get('public/store/search/{id}', 'PublicController\PublicStoreController@search');
 
-Route::get('public/category/search', 'PublicController\PublicCategoryController@search');
+//Route::get('public/category/search', 'PublicController\PublicCategoryController@search');
 
