@@ -4,16 +4,16 @@ namespace App\Http\Controllers\PublicController;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\model\store;
-use App\model\category;
-use App\model\rating;
+use App\model\Store;
+use App\model\Category;
+use App\model\Rating;
 
 class publicCategoryController extends Controller
 {
 
     public function index () {
 
-        $categories  = category::withoutTrashed()->get();
+        $categories  = Category::withoutTrashed()->get();
 
         return view('welcome' , compact('categories'));
     }
@@ -22,7 +22,7 @@ class publicCategoryController extends Controller
         $search = $request['search'];
         //$search = $_GET['search'];
 
-        $categories = category::withoutTrashed()->where('title','like','%'.$search.'%')->select('*')
+        $categories = Category::withoutTrashed()->where('title','like','%'.$search.'%')->select('*')
             ->paginate(3);
 
 

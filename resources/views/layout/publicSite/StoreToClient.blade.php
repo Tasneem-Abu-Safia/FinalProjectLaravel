@@ -42,6 +42,31 @@
 
                 <div class="col-md-12">
                     <div class="filters-content">
+                        @if(session()->has('status'))
+                            @if(session()->get('status') == true)
+                                <div class="alter alert-success" id="message" style=" font-size: 14px;
+
+        padding: 5px;
+        width: 41%;
+        text-align: center;
+        margin: 3% 0% 0% 5%;">
+                                    Rating Successfully
+                                </div>
+                            @else
+                                <div class="alter alert-danger" id="message" style=" font-size: 14px;
+
+        padding: 5px;
+        width: 41%;
+        text-align: center;
+        margin: 3% 0% 0% 5%;">
+                                    You already rated before Or Add Rate before submit
+                                </div>
+                            @endif
+                            <br>
+
+
+                        @endif
+
                         <div class="row grid">
 
                             @if(count($stores) > 0 )
@@ -51,19 +76,42 @@
                                         <img src="{{ env('STORAGE_URL') . '/' . $store->src_logo }}" alt="Image" width="100px" height="300px">
                                         <div class="down-content">
                                             <a href="#"><h4>{{$store->name}}</h4></a>
-                                            <form action="{{URL('public/detail/'.$store->id)}}" method="get">
+                                            <form action="{{URL('public/rate/'.$store->id)}}" method="post">
                                                 @csrf
+                                                    <h4 class="mb-0" style=" font-size: 17px;
 
-                                                <div class="buttons px-4 mt-0">
-
-                                                    <button type="submit"
+    text-align: left;">Rate Store : </h4>
+                                                    <div class="rating" id="rating-bar-{{ $store->id }}">
+                                                        <input type="hidden" name="store" value="{{ $store->id }}">
+                                                        <input type="radio" name="rating" value="5" id="5-{{ $store->id }}">
+                                                        <label for="5-{{ $store->id }}">☆</label>
+                                                        <input type="radio" name="rating" value="4" id="4-{{ $store->id }}">
+                                                        <label for="4-{{ $store->id }}">☆</label>
+                                                        <input type="radio" name="rating" value="3" id="3-{{ $store->id }}">
+                                                        <label for="3-{{ $store->id }}">☆</label>
+                                                        <input type="radio" name="rating" value="2" id="2-{{ $store->id }}">
+                                                        <label for="2-{{ $store->id }}">☆</label>
+                                                        <input type="radio" name="rating" value="1" id="1-{{ $store->id }}">
+                                                        <label for="1-{{ $store->id }}">☆</label></div>
+                                                        <button  type="submit"
                                                             class="btn btn-warning btn-block rating-submit" style="color: white;
     font-size: 15px;
     font-weight: bold;
     border-color: #f33f3f;
-    background-color: #f33f3f;">Show Details</button> </div>
+    background-color: #f33f3f;">Save Rate</button>
 
                                             </form>
+                                            <br>
+
+                                            <a href="{{URL('public/detail/'.$store->id)}}"><button
+                                                            class="btn btn-warning btn-block rating-submit" style="color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-color: #f33f3f;
+    background-color: #f33f3f;">Show Details</button></a>
+
+
+
                                         </div>
                                     </div>
                                 </div>

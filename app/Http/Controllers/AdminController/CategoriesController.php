@@ -4,7 +4,7 @@ namespace App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\model\category;
+use App\model\Category;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CategoriesCreateRequest;
@@ -15,10 +15,10 @@ class CategoriesController extends Controller
     }
 
     public function store(CategoriesCreateRequest $request) {
-        $category = new category;
+        $category = new Category;
         $category->title = $request['title'];
         $category->description= $request['description'];
-        $is_foundTitle  = category::withoutTrashed()->where('title',$request['title'])->exists();
+        $is_foundTitle  = Category::withoutTrashed()->where('title',$request['title'])->exists();
         $status = false;
         if (!$is_foundTitle){
         if ($request->hasFile('image')){
@@ -44,7 +44,7 @@ class CategoriesController extends Controller
 
 
 
-        $categories = category::all();
+        $categories = Category::all();
 
 
 
@@ -54,21 +54,21 @@ class CategoriesController extends Controller
     public function destroy($id) {
 
 
-        $category = category::find($id);
+        $category = Category::find($id);
         $result = $category->delete();
         return redirect()->back();
     }
 
 
     public function edit ($id) {
-        $category = category::find($id);
-        return view('layout.admin.categories.edit')->with('category', $category);
+        $category = Category::find($id);
+        return view('layout.admin.categories.edit')->with('Category', $category);
     }
     public function update (CategoriesCreateRequest $request, $id) {
-        $category = category::find($id);
+        $category = Category::find($id);
         $category->title = $request['title'];
         $category->description= $request['description'];
-        $is_foundTitle  = category::withoutTrashed()->where('title',$request['title'])->where('id','!=',$id)->exists();
+        $is_foundTitle  = Category::withoutTrashed()->where('title',$request['title'])->where('id','!=',$id)->exists();
         $status = false;
         if (!$is_foundTitle){
             if ($request->hasFile('image')){

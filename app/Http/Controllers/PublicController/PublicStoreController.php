@@ -4,9 +4,9 @@ namespace App\Http\Controllers\PublicController;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\model\store;
-use App\model\category;
-use App\model\rating;
+use App\model\Store;
+use App\model\Category;
+use App\model\Rating;
 
 class PublicStoreController extends Controller
 {
@@ -14,20 +14,20 @@ class PublicStoreController extends Controller
     public function index ($id) {
 
         $stores  = Store::withoutTrashed()->where('categories_id',$id)->paginate(3);
-        $rating  = rating::withoutTrashed()->get();
+        $rating  = Rating::withoutTrashed()->get();
         session()->put('categoryID',$id);
         return view('layout.publicSite.StoreToClient' , compact('stores'))->with('allrating',$rating);
     }
 
     public function store(Request $request , $id) {
 
-        $rating = new rating();
+        $rating = new Rating();
         $rating->rate = $request['rating'];
         $rating->ipAddress = exec('getmac');
         //$rating->ipAddress = $request()->ip();
         $rating->stores_id = $id;
         $state ="";
-        $is_IPrating  = rating::withoutTrashed()->where('ipAddress',exec('getmac'))->where('stores_id',$id)->exists();
+        $is_IPrating  = Rating::withoutTrashed()->where('ipAddress',exec('getmac'))->where('stores_id',$id)->exists();
         if (!$is_IPrating){
             if ($request['rating'] != null && $request['rating'] !=null){
             $rate =$request['rating'];
@@ -58,7 +58,7 @@ class PublicStoreController extends Controller
    3) $avg = rating::withoutTrashed()->where('stores_id' ,$id)->avg('rate');
 
  */
-        $store = store::find($id);
+        $store =Store::find($id);
         $old_num = $store->numRating;
         $old_avg = $store->avgRating;
         $new_num = $old_num + 1 ;
@@ -70,7 +70,7 @@ class PublicStoreController extends Controller
 
     public function search($id){
         $search = $_GET['search'];
-        $stores = store::withoutTrashed()->where('name','like','%'.$search.'%')->where('categories_id',$id)
+        $stores = Store::withoutTrashed()->where('name','like','%'.$search.'%')->where('categories_id',$id)
             ->paginate(3);
 
 
