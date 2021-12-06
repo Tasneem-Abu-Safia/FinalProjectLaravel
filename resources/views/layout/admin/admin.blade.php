@@ -97,7 +97,6 @@
         }
     </style>
 
-    @yield("js")
     @yield("css")
 </head>
 

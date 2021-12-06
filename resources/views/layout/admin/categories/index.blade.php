@@ -66,7 +66,7 @@
                    </td>
                    <td>
 
-                       <form action="{{url('admin/categories/delete/'.$category->id)}}" method="post">
+                       <form action="{{url('admin/categories/delete/'.$category->id)}}" method="post" onsubmit="return confirm('Are you sure ?')">
                            @csrf
                            @method('DELETE')
                            <button type="submit" class="btn btn-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
