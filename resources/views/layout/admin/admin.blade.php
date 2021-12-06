@@ -96,6 +96,8 @@
             left: 13px !important;
         }
     </style>
+
+    @yield("js")
     @yield("css")
 </head>
 

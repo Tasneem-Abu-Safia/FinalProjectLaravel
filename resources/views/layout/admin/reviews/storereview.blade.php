@@ -35,7 +35,7 @@
                                 <div class="down-content">
                                     <h4>{{$store->name}}</h4>
                                     <h4>Reviews ({{$store->numRating}})</h4>
-                                    <h4>Average of Rating : ({{$store->avgRating}})</h4>
+                                    <h4>Avg Rate: {{$store->avgRating}}</h4>
                                     <div class="Stars" style="--rating:{{$store->avgRating}};" aria-label="Rating of this product is 2.3 out of 5."></div>
                                     <p>Address : {{$store->address}} <br> Phone : {{$store->phone}}</p>
 
@@ -74,7 +74,7 @@
 
         .Stars {
             --star-size: 25px;
-            --star-color: #fff;
+            --star-color: #8b8b8b;
             --star-background: #fc0;
             --percent: calc(var(--rating) / 5 * 100%);
 

@@ -273,7 +273,7 @@
 
         .Stars {
             --star-size: 25px;
-            --star-color: #fff;
+            --star-color: #8b8b8b;
             --star-background: #fc0;
             --percent: calc(var(--rating) / 5 * 100%);
 

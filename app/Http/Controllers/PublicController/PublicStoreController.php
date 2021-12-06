@@ -48,7 +48,7 @@ class PublicStoreController extends Controller
        return redirect()->back()->with('status',$state);
     }
 
-    public function getAvg($id , $rate)
+    private function getAvg($id , $rate)
     {
 /*
    1) $ratingSum = rating::withoutTrashed()->where('stores_id',$id)->sum('rate');
@@ -65,7 +65,7 @@ class PublicStoreController extends Controller
         $new_avg = (($old_avg * $old_num)+$rate)/($new_num);
         $store->numRating = $new_num;
         $store->avgRating = $new_avg;
-          $store->save();
+        $store->save();
     }
 
     public function search($id){

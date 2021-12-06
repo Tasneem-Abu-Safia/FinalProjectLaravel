@@ -24,9 +24,9 @@ class StoresController extends Controller
         $store->phone= $request['phone'];
         $store->categories_id= $request['category_id'];
 
-        $is_foundName  = Store::withoutTrashed()->where('name',$request['name'])->exists();
+       // $is_foundName  = Store::withoutTrashed()->where('name',$request['name'])->exists();
         $status = false;
-        if (!$is_foundName){
+      //  if (!$is_foundName){
             if ($request->hasFile('image')){
 
             $file = $request->file('image');
@@ -40,7 +40,8 @@ class StoresController extends Controller
             $store->src_logo = $path;}
 
         $status = true;
-        $store->save();}
+        $store->save();
+    //}
 
         return redirect()->back()->with('status',$status);
     }
@@ -60,6 +61,9 @@ class StoresController extends Controller
 
         return view('layout.admin.stores.index' , compact('stores'));
     }
+
+
+
     public function indexDeleted () {
 
 

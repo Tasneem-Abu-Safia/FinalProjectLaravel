@@ -32,11 +32,7 @@
 @section("content")
     <div class="row">
         <div class="col-md-12">
-            <div class="row" style="margin-left: 0%;">
-                <div class="col-12">
-                    <h4>Stores</h4>
-                </div>
-            </div>
+
             <br>
             @if(session()->has('success'))
 
@@ -50,9 +46,13 @@
             <div class="card">
                       <div class="card-header">
                           <div class="row">
-                              <div class="col col-md-12 text-right">
+                              <div class="col col-md-6 text-left">
+                                  <h4>Stores</h4>
+                              </div>
+                              <div class="col col-md-6 text-right">
                                   <a  class="btn btn-primary" href="{{URL('admin/stores/deleted')}}">View Deleted Store</a>
                               </div>
+
                           </div>
                       </div>
                 <div class="card-body">
@@ -115,14 +115,14 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="row" style="margin-left: 0%;">
+                    <div class="col-12">
+                        {{ $stores->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            </div>
-        </div>
-        <div class="row" style="margin-left: 0%;">
-            <div class="col-12">
-                {{ $stores->links() }}
-            </div>
-        </div>
     </div>
 
 @stop
