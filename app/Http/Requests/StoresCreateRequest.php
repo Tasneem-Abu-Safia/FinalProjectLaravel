@@ -27,6 +27,9 @@ class StoresCreateRequest extends FormRequest
             'name' => 'required|String',
             'address' => 'required|String',
              'phone' => 'required',
+            'category_id' => 'required',
+            'src_logo' => 'required',
+
         ];
     }
 
@@ -38,6 +41,9 @@ class StoresCreateRequest extends FormRequest
             'address.required' => 'Address is required',
             'address.String' => 'Address should be string',
             'phone.required' => 'phone is required',
+            'category_id.required' => 'category_id is required',
+            'src_logo.required' => 'Photo is required',
+
         ];
     }
 }

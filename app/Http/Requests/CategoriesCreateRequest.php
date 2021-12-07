@@ -27,6 +27,8 @@ class CategoriesCreateRequest extends FormRequest
         return [
             'title' => 'required|String',
             'description' => 'required|String',
+            'src_photo' => 'required',
+
         ];
     }
 
@@ -37,6 +39,8 @@ class CategoriesCreateRequest extends FormRequest
             'title.String' => 'Title should be string',
             'description.required' => 'description is required',
             'description.String' => 'description should be text',
+            'src_photo.required' => 'Photo is required',
+
         ];
     }
 }

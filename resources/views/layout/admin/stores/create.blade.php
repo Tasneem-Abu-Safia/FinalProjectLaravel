@@ -74,7 +74,7 @@
                             <div class="name">Category</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <select  name="category_id" required class="form-control">
+                                    <select  name="category_id"  class="form-control">
                                         <option >   </option>
                                     @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -88,7 +88,7 @@
                             <div class="name">Upload Image</div>
                             <div class="value">
                                 <div class="form-group mb-3">
-                                    <input required multiple class="form-control" type="file" name="image" id="image">
+                                    <input  multiple class="form-control" type="file" name="image" id="image">
 
                                 </div>
                             </div>
