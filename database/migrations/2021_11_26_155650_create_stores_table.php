@@ -15,7 +15,7 @@ class CreateStoresTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable()->unique();
+            $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('src_logo')->nullable();

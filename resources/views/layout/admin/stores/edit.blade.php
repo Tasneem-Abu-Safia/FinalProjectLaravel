@@ -82,7 +82,7 @@
                                 <div class="input-group">
                                     <select name="category_id" class="form-control">
                                         @foreach ($categories as $category)
-                                            @if ( $store->categories_id == $category->id)
+                                            @if ( $store->category_id == $category->id)
                                                 <option value="{{ $category->id }}"selected >{{ $category->title }}</option>
                                             @else
                                                 <option value="{{ $category->id }}" >{{ $category->title }}</option>

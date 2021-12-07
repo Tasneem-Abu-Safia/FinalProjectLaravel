@@ -5,14 +5,16 @@ namespace App\model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class store extends Model
+class Store extends Model
 {
     use SoftDeletes;
-  public function category(){
-      return $this->belongsTo('App\model\category');
+    protected  $table ="stores";
+
+    public function category(){
+      return $this->belongsTo('App\model\Category');
   }
 
     public function rating(){
-        return $this->hasMany('App\model\rating');
+        return $this->hasMany('App\model\Rating');
     }
 }

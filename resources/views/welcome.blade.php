@@ -59,7 +59,6 @@
                                             <img src="{{ env('STORAGE_URL') . '/' . $category->src_photo }}" alt="Image" width="100px" height="300px">
                                             <div class="down-content">
                                                 <a href="#"><h4>{{$category->title}}</h4></a>
-                                                <p>Title : {{$category->description}}</p>
 
                                                 <form action="{{URL('public/store/'.$category->id)}}" method="get">
                                                     @csrf
@@ -73,7 +72,7 @@
     font-size: 15px;
     font-weight: bold;
     border-color: #f33f3f;
-    background-color: #f33f3f;">Show Store</button> </div>
+    background-color: #f33f3f;">Show Stores</button> </div>
 
                                                         </div>
                                                     </div> </form>

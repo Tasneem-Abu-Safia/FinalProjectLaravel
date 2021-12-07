@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class category extends Model
+class Category extends Model
 {
     use SoftDeletes;
-
+ protected  $table ="categories";
 public function stores(){
- return $this->hasMany('App\model\store');
+ return $this->hasMany('App\model\Store');
 }
 }

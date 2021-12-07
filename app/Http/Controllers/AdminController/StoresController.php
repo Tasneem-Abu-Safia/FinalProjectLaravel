@@ -22,7 +22,7 @@ class StoresController extends Controller
         $store->name = $request['name'];
         $store->address = $request['address'];
         $store->phone= $request['phone'];
-        $store->categories_id= $request['category_id'];
+        $store->category_id= $request['category_id'];
 
        // $is_foundName  = Store::withoutTrashed()->where('name',$request['name'])->exists();
         $status = false;
@@ -48,18 +48,17 @@ class StoresController extends Controller
 
     public function index () {
 
+        $stores = Store::with('category')->paginate(2);
+
+//        $stores = Store::withoutTrashed()->Join('categories', function($join) {
+//            $join->on('stores.category_id', '=', 'categories.id');
+//            $join->wherenull('categories.deleted_at');
+//            })
+//
+//            ->select('*','stores.id as S_id')->paginate(2);
 
 
-        $stores = Store::withoutTrashed()->Join('categories', function($join) {
-            $join->on('stores.categories_id', '=', 'categories.id');
-            $join->wherenull('categories.deleted_at');
-            })
-
-            ->select('*','stores.id as S_id')->paginate(2);
-
-
-
-        return view('layout.admin.stores.index' , compact('stores'));
+       return view('layout.admin.stores.index')->with('stores' , $stores);
     }
 
 
@@ -67,14 +66,15 @@ class StoresController extends Controller
     public function indexDeleted () {
 
 
+        $stores = Store::with('category')->onlyTrashed()->paginate(2);
 
 
-            $stores = Store::onlyTrashed()->Join('categories', function($join) {
-                $join->on('stores.categories_id', '=', 'categories.id');
+       /*     $stores = Store::onlyTrashed()->Join('categories', function($join) {
+                $join->on('stores.category_id', '=', 'categories.id');
                 $join->wherenull('categories.deleted_at');
             })
                 ->select('*','stores.id as S_id')->paginate(2);
-
+*/
 
 
         return view('layout.admin.stores.deletedStore' , compact('stores'));
@@ -100,7 +100,7 @@ class StoresController extends Controller
         $store->name = $request['name'];
         $store->address = $request['address'];
         $store->phone= $request['phone'];
-        $store->categories_id= $request['category_id'];
+        $store->category_id= $request['category_id'];
 
         $is_foundName  = Store::withoutTrashed()->where('name',$request['name'])->where('id','!=',$id)->exists();
         $status = false;
@@ -125,12 +125,15 @@ class StoresController extends Controller
 
     public function search(){
         $search = $_GET['search'];
-        $stores = Store::Join('categories', function($join) {
-            $join->on('stores.categories_id', '=', 'categories.id');
+
+        $stores = Store::with('category')->where('name','like','%'.$search.'%')->paginate(2);
+
+        /*$stores = Store::Join('categories', function($join) {
+            $join->on('stores.category_id', '=', 'categories.id');
             $join->wherenull('categories.deleted_at');
         })->where('name','like','%'.$search.'%')
             ->select('*','stores.id as S_id')->paginate(2);
-
+*/
 
 
 
@@ -147,12 +150,14 @@ class StoresController extends Controller
 
     public function searchDeleted(Request  $request){
         $search = $request['search'];
-        $stores = Store::onlyTrashed()->Join('categories', function($join) {
-            $join->on('stores.categories_id', '=', 'categories.id');
+        $stores = Store::with('category')->onlyTrashed()->where('name','like','%'.$search.'%')->paginate(2);
+
+        /*$stores = Store::onlyTrashed()->Join('categories', function($join) {
+            $join->on('stores.category_id', '=', 'categories.id');
             $join->wherenull('categories.deleted_at');
         })->where('name','like','%'.$search.'%')
             ->select('*','stores.id as S_id')->paginate(2);
-
+*/
 
 
         return view('layout.admin.stores.deletedStore')->with('stores', $stores);

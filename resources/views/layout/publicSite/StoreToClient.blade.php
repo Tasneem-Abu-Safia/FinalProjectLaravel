@@ -83,9 +83,6 @@
                                             <a href="#"><h4>{{$store->name}}</h4></a>
                                             <form action="{{URL('public/rate/'.$store->id)}}" method="post">
                                                 @csrf
-                                                    <h4 class="mb-0" style=" font-size: 17px;
-
-    text-align: left;">Rate Store : </h4>
                                                     <div class="rating" id="rating-bar-{{ $store->id }}">
                                                         <input type="hidden" name="store" value="{{ $store->id }}">
                                                         <input type="radio" name="rating" value="5" id="5-{{ $store->id }}">
