@@ -24,11 +24,11 @@ class StoresCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|String',
-            'address' => 'required|String',
-             'phone' => 'required',
+            'name' => 'required|String|min:5',
+            'address' => 'required|String|min:10',
+             'phone' => 'required|digits:10',
             'category_id' => 'required',
-            'src_logo' => 'required',
+
 
         ];
     }
@@ -42,7 +42,6 @@ class StoresCreateRequest extends FormRequest
             'address.String' => 'Address should be string',
             'phone.required' => 'phone is required',
             'category_id.required' => 'category_id is required',
-            'src_logo.required' => 'Photo is required',
 
         ];
     }

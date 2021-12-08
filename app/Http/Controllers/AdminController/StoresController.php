@@ -17,7 +17,15 @@ class StoresController extends Controller
         return view('layout.admin.stores.create')->with("categories",$categories);
     }
 
-    public function store(StoresCreateRequest $request) {
+    public function store(Request $request) {
+
+        $request->validate([
+            'name' => 'required|String|min:5',
+            'address' => 'required|String|min:10',
+            'phone' => 'required|digits:10',
+            'category_id' => 'required',
+
+        ]);
         $store = new Store;
         $store->name = $request['name'];
         $store->address = $request['address'];

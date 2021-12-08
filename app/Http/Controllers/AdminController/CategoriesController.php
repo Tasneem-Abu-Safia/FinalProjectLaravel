@@ -14,7 +14,13 @@ class CategoriesController extends Controller
         return view('layout.admin.categories.create');
     }
 
-    public function store(CategoriesCreateRequest $request) {
+    public function store(Request $request) {
+          //we can use CategoriesCreateRequest
+        $request->validate([
+            'title' => 'required|String|min:5',
+            'description' => 'required|String|min:10',
+            'src_photo' => 'required|image',
+        ]);
         $category = new Category;
         $category->title = $request['title'];
         $category->description= $request['description'];
@@ -65,7 +71,7 @@ class CategoriesController extends Controller
 
     public function edit ($id) {
         $category = Category::find($id);
-        return view('layout.admin.categories.edit')->with('Category', $category);
+        return view('layout.admin.categories.edit')->with('category', $category);
     }
     public function update (CategoriesCreateRequest $request, $id) {
         $category = Category::find($id);

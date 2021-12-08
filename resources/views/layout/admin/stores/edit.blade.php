@@ -29,7 +29,7 @@
         width: 41%;
         text-align: center;
         margin: 3% 0% 0% 5%;">
-                            Add Successfully
+                            Update Successfully
                         </div>
                     @else
                         <div class="alter alert-danger" id="message" style=" font-size: 14px;

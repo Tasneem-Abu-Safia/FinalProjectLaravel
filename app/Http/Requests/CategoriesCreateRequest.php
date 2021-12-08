@@ -25,9 +25,9 @@ class CategoriesCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|String',
-            'description' => 'required|String',
-            'src_photo' => 'required',
+            'title' => 'required|String|min:5',
+            'description' => 'required|String|min:10',
+            'src_photo' => 'image',
 
         ];
     }
@@ -37,9 +37,12 @@ class CategoriesCreateRequest extends FormRequest
         return [
             'title.required' => 'Title is required',
             'title.String' => 'Title should be string',
+            'title.min:5' => 'The title must be at least 5 characters',
             'description.required' => 'description is required',
             'description.String' => 'description should be text',
-            'src_photo.required' => 'Photo is required',
+            'description.min:10' => 'The description must be at least 10 characters.',
+            'src_photo.image' => 'src_photo Must be an image',
+
 
         ];
     }

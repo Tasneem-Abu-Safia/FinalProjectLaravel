@@ -18,7 +18,7 @@
         <div class="wrapper wrapper--w900">
             <div class="card card-6">
                 <div class="card-heading">
-                    <h2 class="title">Edit categories
+                    <h2 class="title">Edit category
                     </h2>
                 </div>
                 @if(session()->has('status'))
@@ -29,7 +29,7 @@
         width: 41%;
         text-align: center;
         margin: 3% 0% 0% 5%;">
-                            Add Successfully
+                            Update Successfully
                         </div>
                     @else
                         <div class="alter alert-danger" id="message" style=" font-size: 14px;
@@ -55,6 +55,9 @@
                             <div class="value">
                                 <input class="input--style-6" type="text" value="{{$category->title}}" name="title" placeholder="Title">
                             </div>
+                         <!---   <div class="alter alter-danger">
+                                {{$errors->first('title')}}
+                            </div>-->
                         </div>
 
                         <div class="form-row">
@@ -65,6 +68,7 @@
                                               name="description" id="description" >{{$category->description}}</textarea>
                                 </div>
                             </div>
+
                         </div>
                         <div class="form-row">
                             <div class="name">Upload Image</div>
