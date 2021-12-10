@@ -209,7 +209,7 @@
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                                                <i class="m-nav__link-icon flaticon-user"></i>
                                                                 <span class="m-nav__link-title">
                                                                 <span class="m-nav__link-wrap">
                                                                     <span class="m-nav__link-text"><h5>Profile </h5></span>
@@ -219,14 +219,14 @@
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                                <i class="m-nav__link-icon flaticon-mail-1"></i>
                                                                 <span
                                                                     class="m-nav__link-text"><h5>Messages</h5></span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                                <i class="m-nav__link-icon flaticon-settings"></i>
                                                                 <span
                                                                     class="m-nav__link-text"><h5>change Password</h5></span>
                                                             </a>

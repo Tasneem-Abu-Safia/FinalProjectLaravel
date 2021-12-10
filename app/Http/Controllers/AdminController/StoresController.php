@@ -20,9 +20,9 @@ class StoresController extends Controller
     public function store(Request $request) {
 
         $request->validate([
-            'name' => 'required|String|min:5',
+            'name' => 'required|String|min:4',
             'address' => 'required|String|min:10',
-            'phone' => 'required|digits:10',
+            'phone' => 'required|regex:/^\+[0-9]{3} [0-9]{2} [0-9]{3} [0-9]{4}$/',
             'category_id' => 'required',
 
         ]);

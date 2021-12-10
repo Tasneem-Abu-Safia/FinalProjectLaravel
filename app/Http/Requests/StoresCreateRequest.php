@@ -24,9 +24,9 @@ class StoresCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|String|min:5',
+            'name' => 'required|String|min:4',
             'address' => 'required|String|min:10',
-             'phone' => 'required|digits:10',
+             'phone' => 'required|regex:/^\+[0-9]{3} [0-9]{2} [0-9]{3} [0-9]{4}$/',
             'category_id' => 'required',
 
 

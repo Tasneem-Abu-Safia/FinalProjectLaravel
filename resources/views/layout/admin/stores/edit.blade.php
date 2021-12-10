@@ -71,7 +71,7 @@
                             <div class="name">Phone</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="tel" value="{{$store->phone}}" name="phone" placeholder="Store Phone Number">
+                                    <input class="input--style-6" type="tel" value="{{$store->phone}}" name="phone" placeholder="Store Phone Number  +xxx xx xxx xxxx">
 
                                 </div>
                             </div>
