@@ -36,6 +36,8 @@
 
     <!--end::Page Vendors Styles -->
     <link rel="shortcut icon" href="{{asset('metronic/assets/demo/default/media/img/logo/favicon.png')}}" />
+
+    @yield("css")
     <style>
         body,.btn.m-btn--custom,.m-subheader .m-subheader__title,.form-control,.btn,.col-form-label{
             font-family: 'Tajawal', sans-serif;
@@ -97,7 +99,6 @@
         }
     </style>
 
-    @yield("css")
 </head>
 
 <!-- end::Head -->

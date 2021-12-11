@@ -16,6 +16,10 @@
     </form>
 
 @stop
+@section("css")
+    <link href="{{asset('css/table.css')}}" rel="stylesheet" type="text/css" />
+
+@stop
 @section("title-side")
 
     <div class="col-md-2 text-right">
@@ -57,7 +61,7 @@
                       </div>
                 <div class="card-body">
 
-                    <table style="    text-align: center; " class="table table-bordered ">
+                    <table id="datatable" style="    text-align: center; " class="table table-bordered ">
                         <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -127,4 +131,12 @@
 
     </div>
 
+@stop
+@section("js")
+    <script src="{{asset('js/table.js')}}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable();
+        } );
+    </script>
 @stop
