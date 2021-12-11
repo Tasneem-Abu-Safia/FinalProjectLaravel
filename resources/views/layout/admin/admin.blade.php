@@ -391,7 +391,7 @@
             <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                 <div class="m-stack__item m-stack__item--center m-stack__item--middle m-stack__item--last">
 							<span class="m-footer__copyright"><h5>
-								  Copyright © 2011-2021 Laravel .
+								  Copyright © 2021 Laravel .
 							</h5></span>
                 </div>
                 <!--  <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
